@@ -1,0 +1,134 @@
+// Variables
+
+$color1: pink;
+$logosize: 200px;
+
+body {
+	padding: 0px 10px;
+	//display: flex; 	aligne les éléments enfant sur meme ligne
+	@media (max-width:764px) {
+		padding: 0px 0px;
+	}
+}
+
+.wrap {
+
+}
+
+.st0{
+	fill:#000000;
+}
+
+.logonicotine {
+	position:fixed;
+	top:30px;
+	left:10px;
+	margin: 0 0 0 0;
+	//transform: translateY(-50%);
+	z-index: 400;
+	//background-color: $color1;
+	pointer-events: none; //no-click
+
+}
+
+
+
+.logonicotine svg {
+	-webkit-animation: rotate 10s linear infinite;
+	animation: rotate 10s linear infinite;
+	-o-animation: drotate 10s linear infinite;
+	-moz-animation: rotate 10s linear infinite;
+	width: $logosize;
+	height: $logosize;
+	/*  overflow: hidden;*/
+}
+
+@-webkit-keyframes rotate {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.container {
+
+}
+
+.menu li {
+	float: right;
+	margin-left: 20px;
+	display: inline-block;
+
+}
+
+
+#container_projets {
+	//centrer les 2 columns
+}
+
+.projet {
+	margin-bottom: 50px;
+	overflow: hidden;
+	background-color: #eee;
+}
+
+.projet-info {
+	width: 100%;
+	height: 100%;
+	//position: relative;
+	z-index: 2;
+	text-align: center;
+	padding: 5%;
+	cursor: pointer;
+}
+
+.projet img {
+	z-index: 1;
+
+}
+
+.info-title {
+	display: inline-block;
+	background-color: white;
+	z-index: 3;
+	//position: relative;
+   	vertical-align: middle;
+	//centrer verticalement et horizontalement
+
+
+	}
+
+
+
+.info-background{
+	background-color: #ccc;
+	//position: absolute;
+	z-index: 2;
+	// width: 100%;
+	// height: 100%;
+	top: 0;
+	left: 0;
+	// overflow: hidden;
+}
+
+// .projet img {
+//     width: 100%;
+//     height: auto;
+//     position: relative;
+// }
+
+// @media (min-width:640px) {
+
+// 	p {
+// 		color: $color1;
+// 		box-shadow: 0 0 0 darken($color1, 30%)
+// 	}
+//   }
+  

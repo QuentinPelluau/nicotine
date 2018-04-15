@@ -41,7 +41,7 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     uglify = require('gulp-uglify'),
-    livereload = require('gulp-livereload');
+    livereload = require('gulp-livereload'),
     purify = require('gulp-purifycss');
 
 
@@ -119,7 +119,7 @@ gulp.task('watch', function () {
 // Tâche #4 - Remove unused css
 gulp.task('purifycss', function() {
   return gulp.src('./style.css') //CSS Source
-    .pipe(purify(['./*.js', './public/**/*.html']))
+    .pipe(purify(['./*.php', './inc/**/*.php']))
     .pipe(gulp.dest(assets);
 });
 

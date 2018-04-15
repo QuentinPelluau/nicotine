@@ -42,6 +42,8 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     uglify = require('gulp-uglify'),
     livereload = require('gulp-livereload');
+    purify = require('gulp-purifycss');
+
 
 
 // gulp-load-plugins desactiver car pb avec livereload
@@ -60,16 +62,19 @@ var gulp = require('gulp'),
 /// V A R I A B L E S -------------------------------------
 
 // Variables de chemins des dossiers et fichiers ciblés
-var source = './assets'; // dossier de travail
+var assets = './assets'; // dossier de travail
 var prod = '.'; // dossier de destination, livrable, dist
-var mainscss = (source + '/styles/main.scss'); // fichier Scss principal
-//var mainjs = (source + '/scripts/main.js'); // fichier Js principal
-var alljs = (source + '/scripts/*.js'); // fichier Js principal
+var mainscss = (assets+ '/styles/main.scss'); // fichier Scss principal
+//var mainjs = (assets + '/scripts/main.js'); // fichier Js principal
+var alljs = (assets + '/scripts/*.js'); // fichier Js principal
 
 
 /// T A S K S -------------------------------------
 
-// Styles / CSS
+// Tâche par défaut
+gulp.task('default', ['build']);
+
+// Tâche #1  - CSS
 gulp.task('styles', function () {
   return gulp.src(mainscss)
     .pipe(sass({outputStyle:'expanded'}).on('error', sass.logError)) // Compiler Sass vers CSS
@@ -89,7 +94,7 @@ gulp.task('styles', function () {
     // .pipe(plugins.rename({ suffix: '.min' }))
 
 
-// Tâche scripts / JS
+// Tâche #2 - Scripts / JS
 gulp.task('scripts', function() {
   return gulp.src(alljs)
     .pipe(concat('script.js'))
@@ -99,7 +104,7 @@ gulp.task('scripts', function() {
 });
 
 
-// Build
+// Tâche #3 - Build
 // prod = css minify + js minify
 gulp.task('build', ['styles', 'scripts']);
 
@@ -107,10 +112,15 @@ gulp.task('build', ['styles', 'scripts']);
 // surveille *scss et *js et lance ['la tache'] en fonction
 gulp.task('watch', function () {
   livereload.listen();
-  gulp.watch(source + '/styles/**/*.scss', ['styles']); // tout les .scss dans styles
-  gulp.watch(source + '/scripts/**/*.js', ['scripts']);
+  gulp.watch(assets + '/styles/**/*.scss', ['styles']); // tout les .scss dans styles
+  gulp.watch(assets + '/scripts/**/*.js', ['scripts']);
 });
 
-// Tâche par défaut
-gulp.task('default', ['build']);
+// Tâche #4 - Remove unused css
+gulp.task('purifycss', function() {
+  return gulp.src('./style.css') //CSS Source
+    .pipe(purify(['./*.js', './public/**/*.html']))
+    .pipe(gulp.dest(assets);
+});
+
 

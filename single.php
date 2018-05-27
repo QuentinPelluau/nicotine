@@ -9,8 +9,8 @@
 					<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 					<?php the_content(); ?>
 				</article>
-				<!-- laygrid -->
-<?php echo get_laygrid($id, $type); ?>
+				<!-- laygrid --> 
+<?php echo get_laygrid($id, $type); ?> 
 <!-- /laygrid -->
 			<?php endwhile; ?>	
 			</section>

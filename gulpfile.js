@@ -1,30 +1,39 @@
-/// G U L P   C O N F I G  -------------------------------------
+/* G U L P   C O N F I G  -------------------------------------
 
-//Le fichier gulpfile.js s'occupe de gérer les tâches à réaliser, leurs options, leurs sources et destination.
+Le fichier gulpfile.js s'occupe de gérer les tâches à réaliser, leurs options, leurs sources et destination.
 'use strict';// Script entier en mode strict
 
 // HELP
-//www.npmjs.com/package/
-//www.alsacreations.com/tuto/lire/1686-introduction-a-gulp.html
-//www.alsacreations.com/tuto/lire/1685-ebauche-de-workflow-gulp-taches-uncss-includes-critical-css.html
+www.npmjs.com/package/
+www.alsacreations.com/tuto/lire/1686-introduction-a-gulp.html
+www.alsacreations.com/tuto/lire/1685-ebauche-de-workflow-gulp-taches-uncss-includes-critical-css.html
+https://code.tutsplus.com/tutorials/using-gulp-for-wordpress-automation--cms-23081
 
 // TODO
-//fichiers de dev dans le dossier du theme a supprimer pour mis en prod
-//www.npmjs.com/package/gulp-mamp
+fichiers de dev dans le dossier du theme a supprimer pour mis en prod
+www.npmjs.com/package/gulp-mamp
 
 // LIVERELOAD
-// Si bug refresh chrome, vider cache fichier
+ Si bug refresh chrome, vider cache fichier
 
 
 
-/// T E R M I N A L -------------------------------------
+// T E R M I N A L -------------------------------------
 
-//cd dossier de travail
-//$npm install //pour installer les dependances //node modules
-//$ gulp
+npm install a pour mission d'installer tous les plugins listés dans le fichier package.json
+
+cd dossier de travail
+
+Si package.json n'est pas fait :
+//$npm install gulp --save-dev
+// Sinon
+$npm install //pour installer les dependances //node modules
+$ gulp
+$ gulp nomdelatacheàfaire
 
 
-/// R E Q U I R E S -------------------------------------
+
+*/// R E Q U I R E S -------------------------------------
 
 // Definition des variables pour dependencies du package.json
 var gulp = require('gulp'),
@@ -120,7 +129,7 @@ gulp.task('watch', function () {
 gulp.task('purifycss', function() {
   return gulp.src('./style.css') //CSS Source
     .pipe(purify(['./*.php', './inc/**/*.php']))
-    .pipe(gulp.dest(assets);
+    .pipe(gulp.dest(assets));
 });
 
 

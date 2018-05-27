@@ -18,12 +18,26 @@ function al_setup_theme()
 
 }
 
-// @scripts
-add_action('wp_enqueue_scripts', 'pq_setup_script');
+// @scripts and styles
+add_action('wp_enqueue_scripts', 'pq_enqueue');
 
-function pq_setup_script()
+function pq_enqueue()
 {
+    // resets
+    wp_enqueue_style('style-reset', get_stylesheet_directory_uri() . '/assets/styles/reset.css');
+    wp_enqueue_style('style-normalize', get_stylesheet_directory_uri() . '/assets/styles/normalize.css');
+    // styles
     wp_enqueue_style('style-css', get_stylesheet_uri());
+    // wp_enqueue_style('style-skyblog', get_stylesheet_directory_uri() . '/assets/styles/skyblog.css');
+
+         if ( is_page_template( 'page-maintenance.php' ) ) {
+    wp_enqueue_style('style-maintenance', get_stylesheet_directory_uri() . '/assets/styles/maintenance.css');
+    }
+//priorité d'appel des style a revoir
+// !important sur fontstyle
+    
+    // scripts
+    wp_enqueue_script( 'script-name', get_template_directory_uri() . '/assets/scripts/main.js', array(), '1.0.0', true );
 }
 
 // @taxonomy
@@ -93,11 +107,12 @@ function al_def_post_type_wrapper($out)
 }
 
 // @metabox
-require_once TEMPLATEPATH . '/inc/metabox/pq_metabox.php';
+//require_once TEMPLATEPATH . '/inc/metabox/pq_metabox.php'; error active
 // objet meta + instances
 
 // @shortcode
 require_once TEMPLATEPATH . '/inc/shortcode/al_shortcodes.php';
+
 
 
 // @login

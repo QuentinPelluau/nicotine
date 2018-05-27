@@ -11,11 +11,12 @@
     "gulp-csso": "latest",
     "gulp-imagemin": "latest",
     "gulp-inject": "latest",
+    "gulp-livereload": "latest",
     "gulp-load-plugins": "latest",
     "gulp-rename": "latest",
     "gulp-sass": "latest",
     "gulp-sourcemaps": "latest",
     "gulp-uglify": "latest",
-    "gulp-livereload" :"latest"
+    "gulp-purifycss": "latest"
   }
 }

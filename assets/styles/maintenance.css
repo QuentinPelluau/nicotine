@@ -1,0 +1,52 @@
+html {
+    background: #000;
+}
+
+body {
+    margin: 0;
+    vertical-align: middle;
+/*     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;*/
+}
+
+.st0{
+	fill:#FFFFFF;
+}
+
+
+.wrapper {
+	margin-top: 50vh;
+	margin-left: auto;
+  	margin-right: auto;
+	transform: translateY(-50%);
+	z-index: 400;
+	height: 40vh;
+	width: 40vh;
+	/*background-*/color: red;
+
+}
+
+.wrapper svg {
+  -webkit-animation: rotate 10s linear infinite;
+  animation: rotate 10s linear infinite;
+  -o-animation: drotate 10s linear infinite;
+  -moz-animation: rotate 10s linear infinite;
+  width: 40vh;
+  height: 40vh;
+/*  overflow: hidden;*/
+}
+
+
+@-webkit-keyframes rotate {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
